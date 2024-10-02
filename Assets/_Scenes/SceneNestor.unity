@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 49850380}
   - component: {fileID: 49850379}
   - component: {fileID: 49850378}
+  - component: {fileID: 49850382}
   m_Layer: 0
   m_Name: Canon 1
   m_TagString: Untagged
@@ -227,6 +228,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49850382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49850377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5349caa1d9485eb48884843c0f74a1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootSocket: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +387,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 339452693}
+  - component: {fileID: 339452695}
+  - component: {fileID: 339452694}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -395,6 +411,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339452694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339452692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe95164cdee3faf42b15560e06a46250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canon1: {fileID: 49850382}
+  _canon2: {fileID: 1746357987}
+  _bullets: []
+  _minSpeed: 1
+  _maxSpeed: 10
+  _minSize: 1
+  _maxSize: 10
+  _minSpawnRate: 3
+  _maxSpawnRate: 5
+  _difficultyIncreaseTime: 10
+--- !u!114 &339452695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339452692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e9953ecb1a3784088f4419878126ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1Collisions: {fileID: 740660553}
+  Player2Collisions: {fileID: 794648998}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +579,7 @@ GameObject:
   - component: {fileID: 740660549}
   - component: {fileID: 740660548}
   - component: {fileID: 740660547}
+  - component: {fileID: 740660553}
   - component: {fileID: 740660546}
   m_Layer: 0
   m_Name: Player 1
@@ -783,6 +836,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740660553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740660545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a8304eee7ed2a4190bddd4226c37df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794648990
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +862,7 @@ GameObject:
   - component: {fileID: 794648994}
   - component: {fileID: 794648993}
   - component: {fileID: 794648992}
+  - component: {fileID: 794648998}
   - component: {fileID: 794648991}
   m_Layer: 0
   m_Name: Player 2
@@ -1053,6 +1119,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &794648998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794648990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a8304eee7ed2a4190bddd4226c37df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1297,7 @@ GameObject:
   - component: {fileID: 1746357985}
   - component: {fileID: 1746357984}
   - component: {fileID: 1746357983}
+  - component: {fileID: 1746357987}
   m_Layer: 0
   m_Name: Canon 2
   m_TagString: Untagged
@@ -1312,6 +1391,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746357987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746357982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5349caa1d9485eb48884843c0f74a1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootSocket: {fileID: 0}
 --- !u!1 &2115395493
 GameObject:
   m_ObjectHideFlags: 0

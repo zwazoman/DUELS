@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action OnPlayerDied;
+
+    [SerializeField] PlayerCollisions Player1Collisions;
+    [SerializeField] PlayerCollisions Player2Collisions;
+
+
+    //Singleton
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
     {
-        
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayerDied()
     {
-        
+        OnPlayerDied?.Invoke();
+        if(Player1Collisions == null)
+        {
+            //player2 won
+            BackToMenu();
+        }
+        else
+        {
+            //player1 won
+            BackToMenu();
+        }
+    }
+
+    void BackToMenu()
+    {
+        //load le menu
     }
 }
