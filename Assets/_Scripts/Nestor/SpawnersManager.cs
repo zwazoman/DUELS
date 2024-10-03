@@ -53,10 +53,11 @@ public class SpawnersManager : MonoBehaviour
     {
         while (true)
         {
-            GameObject choosenPrefab = _bullets[Random.Range(0, _bullets.Length - 1)];
-            float choosenSpeed = Random.Range(_minSpeed, _maxSpeed) * _bulletsSpeedMultiplier;
-            float choosenSize = Random.Range(_minSize, _maxSize) * _bulletsSizeMultiplier;
-            _canon1.Shoot(choosenPrefab, choosenSpeed, choosenSize);
+            GameObject choosenPrefab = _bullets[Random.Range(0, _bullets.Length)];
+            float choosenSpeedFactor = Random.Range(_minSpeed, _maxSpeed) * _bulletsSpeedMultiplier;
+            float choosenSizeFactor = Random.Range(_minSize, _maxSize) * _bulletsSizeMultiplier;
+            _canon1.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+            _canon2.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
             yield return new WaitForSeconds(Random.Range(_minSpawnRate, _maxSpawnRate) * _spawnRateMultiplier);
         }
         

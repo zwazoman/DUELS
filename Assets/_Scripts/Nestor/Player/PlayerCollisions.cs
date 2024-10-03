@@ -8,7 +8,8 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            Die();
+            //Die();
+            Destroy(collision.gameObject);
         }
     }
 

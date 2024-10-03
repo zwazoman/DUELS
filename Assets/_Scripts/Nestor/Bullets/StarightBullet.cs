@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class StarightBullet : MonoBehaviour
 {
-    [SerializeField] float _speed = 5;
-    [SerializeField] float _size;
-
+    [SerializeField] float _speed = 1;
+    [SerializeField] float _sizeMultiplier = 1;
 
     Rigidbody _rb;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        transform.localScale *= _sizeMultiplier;
     }
 
     private void Start()
     {
-        
+        transform.Rotate(0,-90,0);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        _rb.AddForce(Vector3.left * _speed);
+        //_rb.AddForce(Vector3.left * _speed);
+        transform.Translate(Vector3.forward * 0.1f * _speed);
     }
 }
