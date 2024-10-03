@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4078534514480966581}
   - component: {fileID: 3815513362758434076}
   - component: {fileID: 7528636313490479919}
+  - component: {fileID: 6006626234422330831}
   m_Layer: 6
   m_Name: BouncyStraightBullet
   m_TagString: Untagged
@@ -148,3 +149,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _sizeMultiplier: 1
+--- !u!114 &6006626234422330831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960527994412613364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8992be5ec3ee52a448514058ea4809cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bounceForce: 7.5

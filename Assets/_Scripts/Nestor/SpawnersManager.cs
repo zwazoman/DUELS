@@ -8,8 +8,10 @@ public class SpawnersManager : MonoBehaviour
     
 
     [Header("Cannons")]
-    [SerializeField] Cannon _canon1;
-    [SerializeField] Cannon _canon2;
+    [SerializeField] Cannon _cannon1;
+    [SerializeField] Cannon _cannon2;
+    [SerializeField] Cannon _cannon3;
+    [SerializeField] Cannon _cannon4;
 
     [Header("Bullets Prefabs")]
     [SerializeField] GameObject[] _bullets;
@@ -56,8 +58,18 @@ public class SpawnersManager : MonoBehaviour
             GameObject choosenPrefab = _bullets[Random.Range(0, _bullets.Length)];
             float choosenSpeedFactor = Random.Range(_minSpeed, _maxSpeed) * _bulletsSpeedMultiplier;
             float choosenSizeFactor = Random.Range(_minSize, _maxSize) * _bulletsSizeMultiplier;
-            _canon1.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
-            _canon2.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+            float topOrBot = Random.Range(0, 2);
+            if(topOrBot == 0)
+            {
+                _cannon1.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+                _cannon2.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+            }
+            else
+            {
+                _cannon3.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+                _cannon4.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
+            }
+            
             yield return new WaitForSeconds(Random.Range(_minSpawnRate, _maxSpawnRate) * _spawnRateMultiplier);
         }
         

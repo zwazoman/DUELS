@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StarightBullet : MonoBehaviour
 {
+    public float _speedMultiplier { get; set; }
+
+
     [SerializeField] float _speed = 1;
     [SerializeField] float _sizeMultiplier = 1;
 

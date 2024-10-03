@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Physics.Raycast(transform.position, Vector3.down, 1.5f))

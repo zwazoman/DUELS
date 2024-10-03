@@ -9,7 +9,7 @@ public class Cannon : MonoBehaviour
     public void Shoot(GameObject bulletPrefab, float bulletSpeed, float bulletSize)
     {
         GameObject bullet = Instantiate(bulletPrefab, _shootSocket.position, Quaternion.identity);
-        // choper le script sur la balle
+        StarightBullet bulletScript = bullet.GetComponent<StarightBullet>();
         // changer sa stat de speed 
         // changer sa stat de size
     }
