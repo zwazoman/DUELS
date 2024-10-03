@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 0.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, 1f))
         {
             _isGrounded = true;
         }
