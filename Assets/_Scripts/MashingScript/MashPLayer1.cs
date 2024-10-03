@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MashPLayer1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _player1;
+    [SerializeField] private Vector3 _vector = new Vector3(0, 0.1f, 0);
 
-    // Update is called once per frame
-    void Update()
+    public void OnClimb1(InputAction.CallbackContext context)
     {
-        
+        if (context.performed == true)
+        {
+            _player1.transform.position += _vector;
+        }
     }
 }
