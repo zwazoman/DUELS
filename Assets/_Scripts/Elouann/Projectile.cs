@@ -10,11 +10,16 @@ public class Projectile : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 0f;
         }
         if (collider.tag == "Untagged") return;
-        print("destroyed");
         gameObject.SetActive(false);
         ShootFromSky.ProjectilesPool.Enqueue(gameObject);
+    }
+
+    private void Start()
+    {
+        ShootFromSky.ProjectilesPool.Enqueue(this.gameObject);
     }
 }

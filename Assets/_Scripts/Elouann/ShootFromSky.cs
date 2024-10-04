@@ -33,7 +33,7 @@ public class ShootFromSky : MonoBehaviour
     private RaycastHit _hit;
 
     // Projectile pool
-    public static Queue<GameObject> ProjectilesPool;
+    public static Queue<GameObject> ProjectilesPool = new Queue<GameObject>();
     private GameObject _currentProjectile;
 
     public void Shoot()
@@ -42,8 +42,8 @@ public class ShootFromSky : MonoBehaviour
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
         print("SHOOT");
-        //Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
         _currentProjectile = ProjectilesPool.Dequeue();
+        _currentProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _currentProjectile.transform.position = _projectileSpawnPoint;
         _currentProjectile.SetActive(true);
         _timer = _shootCooldown;
@@ -58,11 +58,9 @@ public class ShootFromSky : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 15; i >= 0; i--)
+        for (int i = 15; i >= 0; i--)
         {
-            GameObject go = Instantiate(_projectilePrefab, Vector3.zero, Quaternion.identity);
-            //ProjectilesPool.Enqueue(go);
-            print(i);
+            GameObject go = Instantiate(_projectilePrefab, Vector3.zero, _projectilePrefab.transform.rotation);
         }
     }
 
