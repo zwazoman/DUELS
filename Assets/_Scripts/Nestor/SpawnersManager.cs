@@ -17,16 +17,15 @@ public class SpawnersManager : MonoBehaviour
     [SerializeField] GameObject[] _bullets;
 
     [Header("Parameters")]
-    [SerializeField] float _minSpeed = 1;
-    [SerializeField] float _maxSpeed = 10;
-    [SerializeField] float _minSize = 1;
-    [SerializeField] float _maxSize = 10;
+    [SerializeField] float _minSpeedFactor = 1;
+    [SerializeField] float _maxSpeedFactor = 10;
+    [SerializeField] float _minSizeFactor = 1;
+    [SerializeField] float _maxSizeFactor = 10;
     [SerializeField] float _minSpawnRate = 3;
     [SerializeField] float _maxSpawnRate = 5;
     [SerializeField] float _difficultyIncreaseTime = 10;
 
     float _bulletsSpeedMultiplier = 1;
-    float _bulletsSizeMultiplier = 1;
     float _spawnRateMultiplier = 1;
 
     float _timer = 0;
@@ -47,7 +46,7 @@ public class SpawnersManager : MonoBehaviour
         if(_timer >= _difficultyIncreaseTime)
         {
             _timer = 0;
-            //IncreaseDifficulty();
+            IncreaseDifficulty();
         }
     }
 
@@ -56,8 +55,8 @@ public class SpawnersManager : MonoBehaviour
         while (true)
         {
             GameObject choosenPrefab = _bullets[Random.Range(0, _bullets.Length)];
-            float choosenSpeedFactor = Random.Range(_minSpeed, _maxSpeed) * _bulletsSpeedMultiplier;
-            float choosenSizeFactor = Random.Range(_minSize, _maxSize) * _bulletsSizeMultiplier;
+            float choosenSpeedFactor = Random.Range(_minSpeedFactor, _maxSpeedFactor) * _bulletsSpeedMultiplier;
+            float choosenSizeFactor = Random.Range(_minSizeFactor, _maxSizeFactor);
             float topOrBot = Random.Range(0, 2);
             if(topOrBot == 0)
             {
@@ -78,8 +77,7 @@ public class SpawnersManager : MonoBehaviour
     void IncreaseDifficulty()
     {
         _bulletsSpeedMultiplier *= 1.1f;
-        _bulletsSizeMultiplier *= 1.1f;
-        _spawnRateMultiplier *= 0.9f;
+        _spawnRateMultiplier *= 0.8f;
     }
 
     void StopShoot()

@@ -6,11 +6,11 @@ public class Cannon : MonoBehaviour
 {
     [SerializeField] Transform _shootSocket;
 
-    public void Shoot(GameObject bulletPrefab, float bulletSpeed, float bulletSize)
+    public void Shoot(GameObject bulletPrefab, float bulletSpeedFactor, float bulletSizeFactor)
     {
         GameObject bullet = Instantiate(bulletPrefab, _shootSocket.position, Quaternion.identity);
-        StarightBullet bulletScript = bullet.GetComponent<StarightBullet>();
-        // changer sa stat de speed 
-        // changer sa stat de size
+        StraightBullet bulletScript = bullet.GetComponent<StraightBullet>();
+        bulletScript.SpeedMultiplier = bulletSpeedFactor;
+        bulletScript.SizeMultiplier = bulletSizeFactor;
     }
 }
