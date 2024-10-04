@@ -12,5 +12,6 @@ public class Cannon : MonoBehaviour
         StraightBullet bulletScript = bullet.GetComponent<StraightBullet>();
         bulletScript.SpeedMultiplier = bulletSpeedFactor;
         bulletScript.SizeMultiplier = bulletSizeFactor;
+        bulletScript.Cannon = gameObject;
     }
 }
