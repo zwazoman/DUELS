@@ -34,7 +34,7 @@ public class ShootFromSky : MonoBehaviour
     {
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
-        //Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
+        Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
         _timer = _shootCooldown;
     }
 
