@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    float _expulseForce = 10f;
+    float _expulseForce = 20f;
 
     PlayerMovement _movement;
     Collider _coll;
     Rigidbody _rb;
+
 
     private void Awake()
     {
@@ -40,8 +41,10 @@ public class PlayerCollisions : MonoBehaviour
 
     void Die()
     {
-        _rb.AddForce((Vector3.up) * _expulseForce,ForceMode.Impulse);
+        _rb.AddForce((Vector3.up - transform.right) * _expulseForce,ForceMode.Impulse);
+        _rb.AddTorque(0,0,8,ForceMode.Impulse);
         _coll.enabled = false;
+        _movement.enabled = false;
 
         Destroy(this);
         GameManager.Instance.PlayerDied();
