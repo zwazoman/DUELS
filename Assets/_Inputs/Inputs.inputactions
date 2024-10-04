@@ -2,7 +2,7 @@
     "name": "Inputs",
     "maps": [
         {
-            "name": "Mini-Jeu Nest",
+            "name": "Player",
             "id": "c0c67f78-3028-4c05-a54e-4f46b6647e3d",
             "actions": [
                 {
@@ -117,7 +117,7 @@
                 {
                     "name": "left",
                     "id": "d2581a9b-1d11-4566-b27d-b92aff5fabbc",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -128,7 +128,7 @@
                 {
                     "name": "right",
                     "id": "fcfe95b8-67b9-4526-84b5-5d0bc98d6400",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -205,7 +205,7 @@
                 {
                     "name": "left",
                     "id": "4386ed49-487f-4479-b4e3-149a7fe38f9b",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -216,7 +216,7 @@
                 {
                     "name": "right",
                     "id": "ac65853d-b0b6-4de8-9153-627577d67608",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
