@@ -35,11 +35,13 @@ public class GameManager : MonoBehaviour
         if(Player1Collisions == null)
         {
             //player2 won
+            Player2Collisions.enabled = false;
             BackToMenu();
         }
         else
         {
             //player1 won
+            Player1Collisions.enabled = false;
             BackToMenu();
         }
     }

@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speed = 5f;
     [SerializeField] float _jumpForce = 5f;
 
-    bool _isGrounded = false;
+    public bool IsGrounded = false;
     float _horizontal;
     Rigidbody _rb;
 
@@ -19,14 +19,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 1.5f))
-        {
-            _isGrounded = true;
-        }
-        else
-        {
-            _isGrounded = false;
-        }
+        //if (Physics.Raycast(transform.position, Vector3.down, 1.5f))
+        //{
+        //    IsGrounded = true;
+        //}
+        //else
+        //{
+        //    IsGrounded = false;
+        //}
     }
 
     private void FixedUpdate()
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!_isGrounded) return;
+            if (!IsGrounded) return;
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }    
     }

@@ -874,8 +874,8 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.06666667, g: 0.7882353, b: 0.93333334, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -893,7 +893,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.5
+    y: 0.501
     width: 1
     height: 1
   near clip plane: 0.3
@@ -2795,6 +2795,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &832152563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4666426637109250511, guid: a81bd9862a746214a89a5a491a10a925,
+    type: 3}
+  m_PrefabInstance: {fileID: 1946041453780706309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f249baefc027aa349b19701b5739a3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,7 +3344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1020213657}
   - component: {fileID: 1020213658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3731,8 +3743,8 @@ Camera:
   m_GameObject: {fileID: 1183402467}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.066082224, g: 0.78686917, b: 0.9339623, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3752,7 +3764,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.5
+    height: 0.499
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -5959,7 +5971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115395497}
   - component: {fileID: 2115395494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6010,6 +6022,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1287793997}
     m_Modifications:
+    - target: {fileID: 5958669354444302862, guid: a81bd9862a746214a89a5a491a10a925,
+        type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 832152563}
     - target: {fileID: 8229702887497402342, guid: a81bd9862a746214a89a5a491a10a925,
         type: 3}
       propertyPath: m_Name
