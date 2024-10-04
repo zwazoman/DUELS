@@ -41,6 +41,7 @@ public class ShootFromSky : MonoBehaviour
         if (!Cooldown.GameStarted) return;
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
+        print("SHOOT");
         //Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
         _currentProjectile = ProjectilesPool.Dequeue();
         _currentProjectile.transform.position = _projectileSpawnPoint;
@@ -60,7 +61,7 @@ public class ShootFromSky : MonoBehaviour
         for(int i = 15; i >= 0; i--)
         {
             GameObject go = Instantiate(_projectilePrefab, Vector3.zero, Quaternion.identity);
-            ProjectilesPool.Enqueue(go);
+            //ProjectilesPool.Enqueue(go);
             print(i);
         }
     }

@@ -966,22 +966,6 @@ MonoBehaviour:
     m_ActionName: Player/Jump1[/Keyboard/upArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 95708480-0ef8-421b-aa55-346f2fca384c
-    m_ActionName: Player/Interact
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 23217933}
-        m_TargetAssemblyTypeName: ShootFromSky, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: c1197f9e-0b8e-40e9-b47d-4838a57bd5e6
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1032,9 +1016,45 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bafbfff7-6c08-4d31-be1d-14994ffad553
     m_ActionName: Player/Climb2[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e70f639a-9c72-404a-98fc-4885a0743474
+    m_ActionName: Mini-Jeu Elouann/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 23217933}
+        m_TargetAssemblyTypeName: ShootFromSky, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 427394be-7f20-4867-82c1-79d94dab9b6e
+    m_ActionName: Mini-Jeu Elouann/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 477ee2c7-9838-427a-94b3-c8f90ee1311e
+    m_ActionName: Mini-Jeu Romain/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f8e1c0c-8de7-4b22-9a2b-72de386dbfc5
+    m_ActionName: Mini-Jeu Romain/Move1[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc131c64-27db-481b-be54-1cc66e6fca85
+    m_ActionName: Mini-Jeu Romain/Climb1[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0881b9d2-ca9e-4e34-b41b-d73cd2540038
+    m_ActionName: Mini-Jeu Romain/Climb2[/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Mini-Jeu Elouann
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!136 &622211825
