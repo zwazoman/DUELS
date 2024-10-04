@@ -6,10 +6,11 @@ public class MashPLayer1 : MonoBehaviour
     [SerializeField] private GameObject _player1;
     [SerializeField] private Vector3 _vector = new Vector3(0, 0.1f, 0);
     [SerializeField] private MashingGame _game;
+    [SerializeField] private Starting _start;
 
     public void OnClimb1(InputAction.CallbackContext context)
     {
-        if (_game.CanInteract == true)
+        if (_game.CanInteract == true && _start.GameStarted == true)
         {
             if (context.performed == true)
             {
