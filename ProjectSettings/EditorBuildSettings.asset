@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/Menu.unity
+    guid: ccdf85c6eead18c46820bc0404a6b9d2
+  - enabled: 1
     path: Assets/_Scenes/SceneNestor.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_Scenes/Romain.unity
+    guid: c30d6943b00d09b46b6b3f125c756631
   m_configObjects: {}
