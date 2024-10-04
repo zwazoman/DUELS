@@ -893,7 +893,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.5
     width: 1
     height: 1
   near clip plane: 0.3
@@ -1081,9 +1081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cannon1: {fileID: 825202847}
-  _cannon2: {fileID: 0}
+  _cannon2: {fileID: 711450559}
   _cannon3: {fileID: 331319891}
-  _cannon4: {fileID: 0}
+  _cannon4: {fileID: 1757630292}
   _bullets:
   - {fileID: 7960527994412613364, guid: 4a2a36a1c15caa1469491792796f960e, type: 3}
   - {fileID: 5304099767153272952, guid: 7fb8a1e4a57af6c4ebf6003ad2596463, type: 3}
@@ -3752,7 +3752,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60.000004
@@ -6086,7 +6086,7 @@ PrefabInstance:
     - target: {fileID: 1505764590242438208, guid: 1643b3e91f59c5a469f68c09826939fc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.1
+      value: -11.953
       objectReference: {fileID: 0}
     - target: {fileID: 1505764590242438208, guid: 1643b3e91f59c5a469f68c09826939fc,
         type: 3}
