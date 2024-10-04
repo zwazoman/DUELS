@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
         }
         if (collider.tag == "Untagged") return;
         print("destroyed");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        ShootFromSky.ProjectilesPool.Enqueue(gameObject);
     }
 }

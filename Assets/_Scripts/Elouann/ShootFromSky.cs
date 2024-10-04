@@ -27,14 +27,24 @@ public class ShootFromSky : MonoBehaviour
     // Components
     private MeshRenderer _renderer;
 
-    // Datas
+    // Datas declarations
     private Vector3 _projectileSpawnPoint;
+    private Ray _ray;
+    private RaycastHit _hit;
+
+    // Projectile pool
+    public static Queue<GameObject> ProjectilesPool;
+    private GameObject _currentProjectile;
 
     public void Shoot()
     {
+        if (!Cooldown.GameStarted) return;
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
-        Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
+        //Instantiate(_projectilePrefab, _projectileSpawnPoint, Quaternion.identity);
+        _currentProjectile = ProjectilesPool.Dequeue();
+        _currentProjectile.transform.position = _projectileSpawnPoint;
+        _currentProjectile.SetActive(true);
         _timer = _shootCooldown;
     }
 
@@ -45,12 +55,22 @@ public class ShootFromSky : MonoBehaviour
         _timer = _shootCooldown;
     }
 
+    private void Start()
+    {
+        for(int i = 15; i >= 0; i--)
+        {
+            GameObject go = Instantiate(_projectilePrefab, Vector3.zero, Quaternion.identity);
+            ProjectilesPool.Enqueue(go);
+            print(i);
+        }
+    }
+
     private void Update()
     {
-        Ray ray  = _mainCamera.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit raycastHit)) 
+        _ray  = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(_ray, out _hit)) 
         {
-            transform.position = raycastHit.point;
+            transform.position = _hit.point;
         }
         _projectileSpawnPoint = new Vector3(this.transform.position.x, this.transform.position.y + 10, this.transform.position.z);
         _timer -= 0.01f;
