@@ -18,7 +18,7 @@ public class PlayerMoveProto : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!Cooldown.GameStarted) return;
+        if (!TrucsQuiTombentManager.Instance.GameRunning) return;
         var dir = this._playerInput.actions.FindAction("Move").ReadValue<Vector2>();
         this._rb.velocity = new Vector3(dir.x, 0, dir.y) * this._speed;
         if (dir != Vector2.zero)
@@ -30,6 +30,7 @@ public class PlayerMoveProto : MonoBehaviour
     private void Update()
     {
         // merci Nathan le boss
+        if (!TrucsQuiTombentManager.Instance.GameRunning) return;
         Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 0)) * new Vector3(this._playerInput.actions.FindAction("Move").ReadValue<Vector2>().x, 0, this._playerInput.actions.FindAction("Move").ReadValue<Vector2>().y);
         if (direction.sqrMagnitude > 0.1f)
         {

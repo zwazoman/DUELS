@@ -1,18 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrucsQuiTombentManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _player;
+    public bool GameRunning { get; set; }
+
+    //public event Action OnGameEnd;
+
+    // Singleton
+    #region Singleton
+
+    private static TrucsQuiTombentManager _instance;
+
+    public static TrucsQuiTombentManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+                Debug.Log("TrucsQuiTombentManager is null");
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(this.gameObject);
+            Debug.Log($"<color=#e655c4>{this.name}</color> instance <color=#eb624d>destroyed</color>");
+        }
+        else
+        {
+            _instance = this;
+            Debug.Log($"<color=#e655c4>{this.name}</color> instance <color=#58ed7d>created</color>");
+        }
+    }
+    #endregion
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GameEnd()
     {
-        
+        GameRunning = false;
+        _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
