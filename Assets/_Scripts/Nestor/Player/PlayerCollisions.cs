@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    float _expulseForce = 20f;
+    [SerializeField] Transform _camera;
+
+    float _expulseForce = 22f;
 
     PlayerMovement _movement;
     Collider _coll;
@@ -41,8 +43,10 @@ public class PlayerCollisions : MonoBehaviour
 
     void Die()
     {
-        _rb.AddForce((Vector3.up - transform.right) * _expulseForce,ForceMode.Impulse);
-        _rb.AddTorque(0,0,8,ForceMode.Impulse);
+        Vector3 cameraDirection = (_camera.position + Vector3.up * 6) - _rb.position;
+        _rb.freezeRotation = false;
+        _rb.AddForce((/*Vector3.up - transform.forward*/cameraDirection.normalized) * _expulseForce,ForceMode.Impulse);
+        _rb.AddTorque(0,1,5,ForceMode.Impulse);
         _coll.enabled = false;
         _movement.enabled = false;
 
