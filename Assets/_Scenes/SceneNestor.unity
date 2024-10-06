@@ -6131,8 +6131,13 @@ PrefabInstance:
     - target: {fileID: 1866203204874001529, guid: a81bd9862a746214a89a5a491a10a925,
         type: 3}
       propertyPath: m_Constraints
-      value: 8
+      value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 5958669354444302862, guid: a81bd9862a746214a89a5a491a10a925,
+        type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1183402468}
     - target: {fileID: 5958669354444302862, guid: a81bd9862a746214a89a5a491a10a925,
         type: 3}
       propertyPath: _movement
@@ -6206,6 +6211,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1218994703}
     m_Modifications:
+    - target: {fileID: 1354552773262308144, guid: 1643b3e91f59c5a469f68c09826939fc,
+        type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 330585546}
     - target: {fileID: 1505764590242438208, guid: 1643b3e91f59c5a469f68c09826939fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6264,7 +6274,7 @@ PrefabInstance:
     - target: {fileID: 7764055639071541084, guid: 1643b3e91f59c5a469f68c09826939fc,
         type: 3}
       propertyPath: m_Constraints
-      value: 8
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
