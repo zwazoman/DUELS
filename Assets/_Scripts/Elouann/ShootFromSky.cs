@@ -38,7 +38,7 @@ public class ShootFromSky : MonoBehaviour
 
     public void Shoot()
     {
-        if (!Cooldown.GameStarted) return;
+        if (!TrucsQuiTombentManager.Instance.GameRunning) return;
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
         print("SHOOT");

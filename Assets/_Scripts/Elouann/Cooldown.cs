@@ -11,7 +11,7 @@ public class Cooldown : MonoBehaviour
 
     private void Start()
     {
-        GameStarted = false;
+        TrucsQuiTombentManager.Instance.GameRunning = false;
         _beginTimerText.text = 3.ToString();
         StartCoroutine(StartCooldown());
     }
@@ -20,14 +20,13 @@ public class Cooldown : MonoBehaviour
     {
         for (int i = 3; i > 0; i--)
         {
-            print(i);
             _beginTimerText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
         _beginTimerText.text = "GO !";
         yield return new WaitForSeconds(1);
         _beginTimerText.gameObject.SetActive(false);
-        GameStarted = true;
-        StartCoroutine(GetComponent<GameTimer>().StartTimer());
+        TrucsQuiTombentManager.Instance.GameRunning = true;
+        StartCoroutine(GetComponent<GameTimer>().Timer());
     }
 }

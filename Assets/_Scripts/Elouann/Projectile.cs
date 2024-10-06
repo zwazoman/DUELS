@@ -11,7 +11,8 @@ public class Projectile : MonoBehaviour
         if (collider.tag == "Player")
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Time.timeScale = 0f;
+            TrucsQuiTombentManager.Instance.GameEnd();
+            //TrucsQuiTombentManager.Instance.GameRunning = false;
         }
         if (collider.tag == "Untagged") return;
         gameObject.SetActive(false);

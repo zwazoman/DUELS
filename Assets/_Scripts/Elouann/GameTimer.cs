@@ -10,50 +10,56 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _gameTimer;
 
-    private float _timer;
+    private static float _timer = 40;
 
     bool canScale = true;
 
     private void Start()
     {
-        _timer = 0;
         _gameTimer.text = null;
     }
 
-    public IEnumerator StartTimer()
+    public IEnumerator Timer()
     {
-        //StartCoroutine(ScaleTimer());
-        while (true)
+        for (float i = _timer; i >= 0; i -= 0.01f)
         {
+            if (!TrucsQuiTombentManager.Instance.GameRunning)
+            {
+                Wobbling();
+                break;
+            }
+            _gameTimer.text = String.Format("{0:0.00}", i);
             yield return new WaitForSeconds(0.01f);
-            //if(Mathf.Round(_timer) % 10 == 0) StartCoroutine(Scale());
-            _timer += 0.01f;
-            _gameTimer.text = String.Format("{0:0.00}", _timer);
         }
+        if (TrucsQuiTombentManager.Instance.GameRunning)
+        _gameTimer.text = String.Format("{0:0.00}", 0);
+        TrucsQuiTombentManager.Instance.GameEnd();
     }
 
-    private IEnumerator ScaleTimer()
+    public static float GetTimer()
     {
-        while (true)
-        {
-        yield return new WaitForSeconds(10.75f);
-        print("OY" + _timer.ToString());
-        _gameTimer.transform.DOScale(2, 0.2f).SetEase(Ease.OutBack);
-        yield return new WaitForSeconds(0.2f);
-        _gameTimer.transform.DOScale(1, 0.4f);
-        }
+        return _timer;
     }
 
-    private IEnumerator Scale()
+    #region Visual
+
+    private void Wobbling()
     {
-        if (canScale)
+        this._gameTimer.fontSize = 90;
+        this._gameTimer.gameObject.GetComponent<CharacterWobble>().enabled = true;
+        StartCoroutine(Scaling(0.6f, true));
+    }
+
+    private IEnumerator Scaling(float scaleSpeed = 0.6f, bool loop = false)
+    {
+        while(true)
         {
-            canScale = false;
-            print(_timer);
-            _gameTimer.transform.DOScale(2, 0.2f).SetEase(Ease.OutBack);
-            yield return new WaitForSeconds(0.2f);
-            _gameTimer.transform.DOScale(1, 0.4f);
-            canScale = true;
+            this._gameTimer.gameObject.transform.DOScale(1.2f, 0.6f).SetEase(Ease.InOutQuad);
+            yield return new WaitForSeconds(0.5f);
+            this._gameTimer.gameObject.transform.DOScale(1, 0.6f).SetEase(Ease.InOutQuad);
+            yield return new WaitForSeconds(0.5f);
+            if (!loop) break;
         }
     }
+    #endregion
 }
