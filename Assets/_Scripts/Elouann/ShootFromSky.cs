@@ -41,10 +41,11 @@ public class ShootFromSky : MonoBehaviour
         if (!TrucsQuiTombentManager.Instance.GameRunning) return;
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
-        print("SHOOT");
         _currentProjectile = ProjectilesPool.Dequeue();
         _currentProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _currentProjectile.transform.position = _projectileSpawnPoint;
+        Vector3 rot = new Vector3(Random.Range(10, -10), Random.Range(10, -10), 0);
+        _currentProjectile.transform.rotation *= Quaternion.Euler(rot);
         _currentProjectile.SetActive(true);
         _timer = _shootCooldown;
     }

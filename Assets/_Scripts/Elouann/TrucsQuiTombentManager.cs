@@ -8,8 +8,6 @@ public class TrucsQuiTombentManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     public bool GameRunning { get; set; }
 
-    //public event Action OnGameEnd;
-
     // Singleton
     #region Singleton
 
