@@ -17,7 +17,7 @@ public class Cannon : MonoBehaviour
         bulletScript.SpeedMultiplier = bulletSpeedFactor;
         bulletScript.SizeMultiplier = bulletSizeFactor;
         bulletScript.Cannon = gameObject;
-        if (_impulseSource != null ) _impulseSource.GenerateImpulse();
+        //if (_impulseSource != null ) _impulseSource.GenerateImpulse();
         //_barrel.GetComponent<Rigidbody>().AddTorque(-Vector3.forward,ForceMode.Impulse); claqué
     }
 }
