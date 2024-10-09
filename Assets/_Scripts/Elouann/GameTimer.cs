@@ -28,10 +28,12 @@ public class GameTimer : MonoBehaviour
                 Wobbling();
                 break;
             }
-            _gameTimer.text = String.Format("{0:0.00}", i);
+            _timer = i;
+            _gameTimer.text = String.Format("{0:0.00}", _timer);
             yield return new WaitForSeconds(0.01f);
         }
         if (TrucsQuiTombentManager.Instance.GameRunning)
+        _timer = 0;
         _gameTimer.text = String.Format("{0:0.00}", 0);
         TrucsQuiTombentManager.Instance.GameEnd();
     }
