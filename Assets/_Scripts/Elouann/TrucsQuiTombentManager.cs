@@ -1,12 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TrucsQuiTombentManager : MonoBehaviour
 {
+    // UI
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _endPanel;
+
+    [SerializeField] private Color _player1Color;
+    [SerializeField] private Color _player2Color;
+    // System
     public bool GameRunning { get; set; }
+
+    private TextMeshProUGUI _playerP;
+    private TextMeshProUGUI _hasWon;
+    private Color _textColor;
 
     // Singleton
     #region Singleton
@@ -40,12 +51,25 @@ public class TrucsQuiTombentManager : MonoBehaviour
 
     private void Start()
     {
-        
+        _endPanel.SetActive(false);
+        _textColor = Color.white;
+        _playerP = _endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
     public void GameEnd()
     {
         GameRunning = false;
         _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        _endPanel.SetActive(true);
+        UpdateEndText();
+    }
+
+    private void UpdateEndText()
+    {
+        _playerP.text = (GameTimer.GetTimer() <= 0) ? "Player 1 " : "Player 2 ";
+        Color color = (GameTimer.GetTimer() <= 0) ? _player1Color : _player2Color;
+        _playerP.color = color;
+        //_hasWon.color = color;
+        //_hasWon.text = (GameTimer.GetTimer() <= 0) ? "has won !";
     }
 }

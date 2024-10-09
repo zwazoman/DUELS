@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
+    private float _lifeTime = 5f;
+
     private void OnTriggerEnter(Collider collider)
     {
+        StartCoroutine(QueueTimer());
         if (collider.tag == "Player")
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -22,5 +26,12 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         ShootFromSky.ProjectilesPool.Enqueue(this.gameObject);
+    }
+
+    private IEnumerator QueueTimer()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+        gameObject.SetActive(false);
+        ShootFromSky.ProjectilesPool.Enqueue(gameObject);
     }
 }
