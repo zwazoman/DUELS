@@ -6,6 +6,10 @@ public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField] Transform _camera;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip[] _deathSounds;
+    [SerializeField] float _deathSoundsVolume = 1f;
+
     float _expulseForce = 22f;
 
     PlayerMovement _movement;
@@ -43,14 +47,16 @@ public class PlayerCollisions : MonoBehaviour
 
     void Die()
     {
+        _rb.constraints = 0;
         Vector3 cameraDirection = (_camera.position + Vector3.up * 6) - _rb.position;
-        _rb.freezeRotation = false;
+        
         _rb.AddForce((/*Vector3.up - transform.forward*/cameraDirection.normalized) * _expulseForce,ForceMode.Impulse);
         _rb.AddTorque(0,1,5,ForceMode.Impulse);
         _coll.enabled = false;
         _movement.enabled = false;
 
         Destroy(this);
+        SFXManager.Instance.PlaySFXClip(_deathSounds,transform.position,_deathSoundsVolume);
         GameManager.Instance.PlayerDied();
     }
 }

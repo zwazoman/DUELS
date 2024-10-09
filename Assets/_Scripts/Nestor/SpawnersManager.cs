@@ -25,6 +25,10 @@ public class SpawnersManager : MonoBehaviour
     [SerializeField] float _maxSpawnRate = 5;
     [SerializeField] float _difficultyIncreaseTime = 10;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip[] _shootSounds;
+    [SerializeField] float _shootSoundsVolume = 1f;
+
     float _bulletsSpeedMultiplier = 1;
     float _spawnRateMultiplier = 1;
 
@@ -68,7 +72,8 @@ public class SpawnersManager : MonoBehaviour
                 _cannon3.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
                 _cannon4.Shoot(choosenPrefab, choosenSpeedFactor, choosenSizeFactor);
             }
-            
+
+            SFXManager.Instance.PlaySFXClip(_shootSounds, transform.position, _shootSoundsVolume);
             yield return new WaitForSeconds(Random.Range(_minSpawnRate, _maxSpawnRate) * _spawnRateMultiplier);
         }
         

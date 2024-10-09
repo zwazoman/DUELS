@@ -958,6 +958,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Climb2",
+                    "type": "Button",
+                    "id": "d67fec31-d96d-4e40-8551-2752824dcc75",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1145,6 +1154,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Climb1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4b329fd-af36-4a13-a18c-79a473fb1bf6",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Climb2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
