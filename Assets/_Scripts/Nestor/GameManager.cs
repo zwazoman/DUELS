@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerCollisions Player2Collisions;
 
     [SerializeField] BlackTransition _transi;
+
+    [SerializeField] TMP_Text _winText;
 
 
     //Singleton
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
             //player2 won
             Player2Collisions.enabled = false;
             GameIsPlaying = false;
+            _winText.text = "Player 2 Won !!";
             BackToMenu();
         }
         else
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
             //player1 won
             Player1Collisions.enabled = false;
             GameIsPlaying = false;
+            _winText.text = "Player 1 Won !!";
             BackToMenu();
         }
     }
