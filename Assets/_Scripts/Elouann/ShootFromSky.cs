@@ -57,6 +57,7 @@ public class ShootFromSky : MonoBehaviour
 
     private void Start()
     {
+        print("BEGINNING");
         foreach(GameObject go in _projectilesToEnqueue)
         {
             ProjectilesPool.Enqueue(go);
