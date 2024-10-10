@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,13 +65,13 @@ public class BlackTransition : MonoBehaviour
     /// <summary>
     /// Cover the screen with black in a little cartoonish pop-in animation (1.5 seconds). 
     /// </summary>
-    public void TransitionIn()
+    public void TransitionIn(Action callBack = null)
     {
-        StartCoroutine(TransiIn());
+        StartCoroutine(TransiIn(callBack));
     }
 
     #region Coroutines
-    public IEnumerator TransiIn()
+    public IEnumerator TransiIn(Action callback = null)
     {
         IsAnimating = true;
         _circle.enabled = true;
@@ -79,9 +80,10 @@ public class BlackTransition : MonoBehaviour
         {
             _radius = _animCurveIn.Evaluate(t);
             t += 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
         IsAnimating = false;
+        if (callback != null) callback();
     }
 
     public IEnumerator TransiOut()
@@ -92,7 +94,7 @@ public class BlackTransition : MonoBehaviour
         {
             _radius = _animCurveOut.Evaluate(t);
             t += 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
         _circle.enabled = false;
         IsAnimating = false;

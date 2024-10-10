@@ -9,7 +9,7 @@ public class ChangeSceneWithTransition : MonoBehaviour
 
     private void Start()
     {
-        _transitionScript = GameObject.Find("Transition").GetComponent<BlackTransition>();
+        _transitionScript = GameObject.Find("Transition").GetComponent<BlackTransition>(); //connard
     }
 
     public async void ChangeScene()

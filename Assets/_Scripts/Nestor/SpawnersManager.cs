@@ -56,7 +56,7 @@ public class SpawnersManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        while (true)
+        while (GameManager.Instance.GameIsPlaying)
         {
             GameObject choosenPrefab = _bullets[Random.Range(0, _bullets.Length)];
             float choosenSpeedFactor = Random.Range(_minSpeedFactor, _maxSpeedFactor) * _bulletsSpeedMultiplier;
