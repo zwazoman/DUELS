@@ -7656,18 +7656,6 @@ MonoBehaviour:
     m_ActionName: Player/Jump1[/Keyboard/upArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: c1197f9e-0b8e-40e9-b47d-4838a57bd5e6
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ab2f0171-6ca4-49f0-82d0-7f4bc952ae50
-    m_ActionName: Player/Climb1[/Keyboard/w]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bafbfff7-6c08-4d31-be1d-14994ffad553
-    m_ActionName: Player/Climb2[/Keyboard/upArrow]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: ae07f5b4-47e0-4c24-bb3b-5dc5ce64eb8b
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -7752,7 +7740,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0881b9d2-ca9e-4e34-b41b-d73cd2540038
+    m_ActionId: d67fec31-d96d-4e40-8551-2752824dcc75
     m_ActionName: Mini-Jeu Romain/Climb2[/Keyboard/upArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
