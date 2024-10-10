@@ -18,7 +18,7 @@ public class TrucsQuiTombentManager : MonoBehaviour
     [SerializeField] GameObject _sceneChangerGiantButton;
 
     private GameTimer _gameTimer;
-    private BlackTransition _transitionScript;
+    [SerializeField] private BlackTransition _transitionScript;
 
     private TextMeshProUGUI _playerP;
     private TextMeshProUGUI _hasWon;
@@ -61,7 +61,6 @@ public class TrucsQuiTombentManager : MonoBehaviour
         _endPanel.SetActive(false);
         _textColor = Color.white;
         _playerP = _endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        _transitionScript = GameObject.Find("Transition").GetComponent<BlackTransition>();
         _transitionScript.TransitionOut();
     }
 
