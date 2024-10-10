@@ -54,7 +54,7 @@ public class BlackTransition : MonoBehaviour
     }
 
     /// <summary>
-    /// Remove the black screen with a little pop-out animation.
+    /// Remove the black screen with a little pop-out animation (1 second).
     /// </summary>
     public void TransitionOut()
     {
@@ -62,7 +62,7 @@ public class BlackTransition : MonoBehaviour
     }
 
     /// <summary>
-    /// Cover the screen with black in a little cartoonish pop-in animation. 
+    /// Cover the screen with black in a little cartoonish pop-in animation (1.5 seconds). 
     /// </summary>
     public void TransitionIn()
     {

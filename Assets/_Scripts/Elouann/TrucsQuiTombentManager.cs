@@ -15,6 +15,8 @@ public class TrucsQuiTombentManager : MonoBehaviour
     // System
     public bool GameRunning { get; set; }
 
+    [SerializeField] GameObject _sceneChangerGiantButton;
+
     private GameTimer _gameTimer;
     private BlackTransition _transitionScript;
 
@@ -54,6 +56,7 @@ public class TrucsQuiTombentManager : MonoBehaviour
 
     private void Start()
     {
+        _sceneChangerGiantButton.SetActive(false);
         _gameTimer = GameObject.Find("Cooldown").GetComponent<GameTimer>(); //
         _endPanel.SetActive(false);
         _textColor = Color.white;
@@ -68,7 +71,7 @@ public class TrucsQuiTombentManager : MonoBehaviour
         _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _endPanel.SetActive(true);
         UpdateEndText();
-        _transitionScript.TransitionIn();
+        _sceneChangerGiantButton.SetActive(true);
     }
 
     private void UpdateEndText()

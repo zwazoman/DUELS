@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ShootFromSky : MonoBehaviour
 {
@@ -58,11 +57,6 @@ public class ShootFromSky : MonoBehaviour
 
     private void Start()
     {
-        //for (int i = 15; i >= 0; i--)
-        //{
-        //    GameObject go = Instantiate(_projectilePrefab, Vector3.zero, _projectilePrefab.transform.rotation);
-        //    ProjectilesPool.Enqueue(go);
-        //}
         foreach(GameObject go in _projectilesToEnqueue)
         {
             ProjectilesPool.Enqueue(go);

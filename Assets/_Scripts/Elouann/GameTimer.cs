@@ -19,19 +19,16 @@ public class GameTimer : MonoBehaviour
     {
         for (float i = _timer; i >= -0.01f; i -= 0.01f)
         {
+            if (!TrucsQuiTombentManager.Instance.GameRunning) break;
             _timer = i;
             _gameTimer.text = String.Format("{0:0.00}", _timer);
             yield return new WaitForSeconds(0.01f);
-            print($"timer : {_timer}");
             if (_timer <= 0)
             {
+                Wobbling();
                 TrucsQuiTombentManager.Instance.GameEnd();
             }
         }
-    //    if (TrucsQuiTombentManager.Instance.GameRunning) yield return null;
-    //    _timer = 0;
-    //    _gameTimer.text = String.Format("{0:0.00}", 0);
-    //    TrucsQuiTombentManager.Instance.GameEnd();
     }
 
     public float GetTimer()
