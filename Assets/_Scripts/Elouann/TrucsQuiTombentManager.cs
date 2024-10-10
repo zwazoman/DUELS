@@ -15,6 +15,9 @@ public class TrucsQuiTombentManager : MonoBehaviour
     // System
     public bool GameRunning { get; set; }
 
+    private GameTimer _gameTimer;
+    private BlackTransition _transitionScript;
+
     private TextMeshProUGUI _playerP;
     private TextMeshProUGUI _hasWon;
     private Color _textColor;
@@ -51,9 +54,12 @@ public class TrucsQuiTombentManager : MonoBehaviour
 
     private void Start()
     {
+        _gameTimer = GameObject.Find("Cooldown").GetComponent<GameTimer>(); //
         _endPanel.SetActive(false);
         _textColor = Color.white;
         _playerP = _endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        _transitionScript = GameObject.Find("Transition").GetComponent<BlackTransition>();
+        _transitionScript.TransitionOut();
     }
 
     public void GameEnd()
@@ -62,14 +68,13 @@ public class TrucsQuiTombentManager : MonoBehaviour
         _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _endPanel.SetActive(true);
         UpdateEndText();
+        _transitionScript.TransitionIn();
     }
 
     private void UpdateEndText()
     {
-        _playerP.text = (GameTimer.GetTimer() <= 0) ? "Player 1 " : "Player 2 ";
-        Color color = (GameTimer.GetTimer() <= 0) ? _player1Color : _player2Color;
+        _playerP.text = (_gameTimer.GetTimer() <= 0) ? "Player 1 " : "Player 2 ";
+        Color color = (_gameTimer.GetTimer() <= 0) ? _player1Color : _player2Color;
         _playerP.color = color;
-        //_hasWon.color = color;
-        //_hasWon.text = (GameTimer.GetTimer() <= 0) ? "has won !";
     }
 }

@@ -1,18 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using System;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class GameTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _gameTimer;
 
-    private static float _timer = 40;
-
-    bool canScale = true;
+    private float _timer = 10;
 
     private void Start()
     {
@@ -21,24 +17,24 @@ public class GameTimer : MonoBehaviour
 
     public IEnumerator Timer()
     {
-        for (float i = _timer; i >= 0; i -= 0.01f)
+        for (float i = _timer; i >= -0.01f; i -= 0.01f)
         {
-            if (!TrucsQuiTombentManager.Instance.GameRunning)
-            {
-                Wobbling();
-                break;
-            }
             _timer = i;
             _gameTimer.text = String.Format("{0:0.00}", _timer);
             yield return new WaitForSeconds(0.01f);
+            print($"timer : {_timer}");
+            if (_timer <= 0)
+            {
+                TrucsQuiTombentManager.Instance.GameEnd();
+            }
         }
-        if (TrucsQuiTombentManager.Instance.GameRunning)
-        _timer = 0;
-        _gameTimer.text = String.Format("{0:0.00}", 0);
-        TrucsQuiTombentManager.Instance.GameEnd();
+    //    if (TrucsQuiTombentManager.Instance.GameRunning) yield return null;
+    //    _timer = 0;
+    //    _gameTimer.text = String.Format("{0:0.00}", 0);
+    //    TrucsQuiTombentManager.Instance.GameEnd();
     }
 
-    public static float GetTimer()
+    public float GetTimer()
     {
         return _timer;
     }

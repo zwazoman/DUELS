@@ -23,14 +23,17 @@ public class Projectile : MonoBehaviour
         ShootFromSky.ProjectilesPool.Enqueue(gameObject);
     }
 
-    private void Start()
-    {
-        ShootFromSky.ProjectilesPool.Enqueue(this.gameObject);
-    }
+    //private void Start()
+    //{
+    //    ShootFromSky.ProjectilesPool.Enqueue(this.gameObject);
+    //}
 
     private IEnumerator QueueTimer()
     {
-        yield return new WaitForSeconds(_lifeTime);
+        while (gameObject.transform.position.y >= 0)
+        {
+            yield return null;
+        }
         gameObject.SetActive(false);
         ShootFromSky.ProjectilesPool.Enqueue(gameObject);
     }

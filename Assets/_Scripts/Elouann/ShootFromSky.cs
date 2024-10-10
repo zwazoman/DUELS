@@ -8,9 +8,6 @@ public class ShootFromSky : MonoBehaviour
     [SerializeField]
     private GameObject _projectilePrefab;
 
-    //[SerializeField]
-    //private float _projectileFallSpeed;
-
     [SerializeField]
     private float _shootCooldown = 0.75f;
     private float _timer;
@@ -33,6 +30,7 @@ public class ShootFromSky : MonoBehaviour
     private RaycastHit _hit;
 
     // Projectile pool
+    [SerializeField] private List<GameObject> _projectilesToEnqueue;
     public static Queue<GameObject> ProjectilesPool = new Queue<GameObject>();
     private GameObject _currentProjectile;
 
@@ -42,6 +40,7 @@ public class ShootFromSky : MonoBehaviour
         StartCoroutine(ClickAnimation());
         if (_timer > 0) return;
         _currentProjectile = ProjectilesPool.Dequeue();
+        print(_currentProjectile);
         _currentProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _currentProjectile.transform.position = _projectileSpawnPoint;
         Vector3 rot = new Vector3(Random.Range(10, -10), Random.Range(10, -10), 0);
@@ -59,9 +58,15 @@ public class ShootFromSky : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 15; i >= 0; i--)
+        //for (int i = 15; i >= 0; i--)
+        //{
+        //    GameObject go = Instantiate(_projectilePrefab, Vector3.zero, _projectilePrefab.transform.rotation);
+        //    ProjectilesPool.Enqueue(go);
+        //}
+        foreach(GameObject go in _projectilesToEnqueue)
         {
-            GameObject go = Instantiate(_projectilePrefab, Vector3.zero, _projectilePrefab.transform.rotation);
+            ProjectilesPool.Enqueue(go);
+            print(go.name);
         }
     }
 
