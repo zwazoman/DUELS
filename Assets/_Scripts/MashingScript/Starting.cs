@@ -19,7 +19,6 @@ public class Starting : MonoBehaviour
     {
         for (int i = 3; i > 0; i--)
         {
-            print(i);
             _beginTimerText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
